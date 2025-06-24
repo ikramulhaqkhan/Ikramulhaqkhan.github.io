@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+ <meta name="viewport" content="width=1584, user-scalable=no">
+
+    <title>Ikram Ul Haq Khan - Professional Resume</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .resume-container {
+            max-width: 1000px;
+            width: 100%;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+            position: relative;
+        }
+        
+        /* Header styles */
+        .header {
+            background: linear-gradient(to right, #1a237e, #283593);
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #ff8a00, #da1b60);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .header h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+            color: #e3f2fd;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Two-column layout */
+        .resume-body {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .left-column {
+            flex: 1;
+            min-width: 300px;
+            background: #f8f9fa;
+            padding: 30px;
+            border-right: 1px solid #e0e0e0;
+        }
+        
+        .right-column {
+            flex: 2;
+            min-width: 400px;
+            padding: 30px;
+        }
+        
+        /* Section styling */
+        .section {
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            color: #1a237e;
+            border-bottom: 2px solid #5c6bc0;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #ff8a00;
+        }
+        
+        .section-title i {
+            background: #5c6bc0;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+        
+        /* Skills styling */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .skill-category {
+            margin-bottom: 15px;
+        }
+        
+        .skill-category h4 {
+            color: #3949ab;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            background: #e8eaf6;
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #1a237e;
+            font-weight: 500;
+        }
+        
+        /* Experience and Education */
+        .experience-item, .education-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid #5c6bc0;
+            position: relative;
+        }
+        
+        .experience-item::before, .education-item::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ff8a00;
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px #ff8a00;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #1a237e;
+        }
+        
+        .company {
+            color: #3949ab;
+            font-weight: 500;
+            margin: 3px 0;
+        }
+        
+        .date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            background: #f0f4ff;
+            padding: 3px 10px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .responsibilities {
+            list-style-position: inside;
+            padding-left: 10px;
+        }
+        
+        .responsibilities li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .responsibilities li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #5c6bc0;
+        }
+        
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .project-card {
+            background: #f0f4ff;
+            border-radius: 10px;
+            padding: 18px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: #5c6bc0;
+        }
+        
+        .project-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #1a237e;
+            margin-bottom: 10px;
+        }
+        
+        .project-title i {
+            color: #3949ab;
+        }
+        
+        .project-details {
+            font-size: 0.95rem;
+            color: #444;
+        }
+        
+        .project-details ul {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+        
+        .project-details li {
+            margin-bottom: 5px;
+        }
+        
+        /* Interests */
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .interest-item {
+            background: #e8eaf6;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #1a237e;
+        }
+        
+        /* Profile summary */
+        .summary {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            border-left: 4px solid #5c6bc0;
+        }
+        
+        /* Download button */
+        .download-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #1a237e, #283593);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 100;
+            font-weight: 600;
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(45deg, #283593, #3949ab);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .download-btn:active {
+            transform: translateY(1px);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background: #1a237e;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white !important;
+                padding: 0;
+            }
+            
+            .resume-container {
+                box-shadow: none;
+                margin: 0;
+                border-radius: 0;
+                width: 100%;
+            }
+            
+            .download-btn {
+                display: none;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .left-column, .right-column {
+                padding: 20px;
+            }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .resume-body {
+                flex-direction: column;
+            }
+            
+            .left-column {
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .download-btn {
+                bottom: 15px;
+                right: 15px;
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Success message */
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: fadeInOut 3s forwards;
+        }
+        
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(-20px); }
+            20% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container" id="resume">
+        <header class="header">
+            <h1>Ikram Ul Haq Khan</h1>
+            <h2>Software Engineer (Frontend)</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Havelian, Abbottabad</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>ikramulhaqkhan111@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>0311-9756879</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>ikram-ul-haq-khan-274652218</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <span>ikramulhaqkhan</span>
+                </div>
+            </div>
+        </header>
+        
+        <div class="resume-body">
+            <div class="left-column">
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-user"></i>Profile Summary</h3>
+                    <p class="summary">Dynamic and detail-oriented Frontend Developer with 3+ years of experience in building responsive, scalable web applications using Angular, ReactJS, and modern UI frameworks. Passionate about creating intuitive user interfaces and improving performance through clean, maintainable code. Adept at collaborating with cross-functional teams and delivering quality solutions in fast-paced environments.</p>
+                </div>
+                
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-code"></i>Skills</h3>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Languages & Frameworks</h4>
+                            <ul class="skill-list">
+                                <li>JavaScript</li>
+                                <li>TypeScript</li>
+                                <li>Angular 14+</li>
+                                <li>AngularJS</li>
+                                <li>ReactJS</li>
+                                <li>Next.js</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>Styling & UI</h4>
+                            <ul class="skill-list">
+                                <li>HTML5</li>
+                                <li>CSS3</li>
+                                <li>SCSS</li>
+                                <li>Tailwind CSS</li>
+                                <li>Bootstrap</li>
+                                <li>Angular Material</li>
+                                <li>PrimeNG</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>State Management</h4>
+                            <ul class="skill-list">
+                                <li>RxJS</li>
+                                <li>NgRx</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>Design Tools</h4>
+                            <ul class="skill-list">
+                                <li>Figma</li>
+                                <li>Photoshop</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>Version Control</h4>
+                            <ul class="skill-list">
+                                <li>Git</li>
+                                <li>GitHub</li>
+                                <li>Bitbucket</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-language"></i>Languages</h3>
+                    <ul class="skill-list">
+                        <li>English (Professional)</li>
+                        <li>Urdu (Native)</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-brain"></i>Soft Skills</h3>
+                    <div class="interests">
+                        <span class="interest-item">Efficiency Under Pressure</span>
+                        <span class="interest-item">Critical Thinking</span>
+                        <span class="interest-item">Client Communication</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="right-column">
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-briefcase"></i>Experience</h3>
+                    <div class="experience-item">
+                        <div class="job-title">Frontend Developer</div>
+                        <div class="company">Cube Health Care System</div>
+                        <div class="date">Oct 2022 – Present</div>
+                        <ul class="responsibilities">
+                            <li>Developed healthcare web modules like PracticeFit, Denial Control, and Cube Client using Angular and PrimeNG</li>
+                            <li>Enhanced performance and reduced load times by 30% via code optimization and lazy loading</li>
+                            <li>Built scalable, reusable components with real-time data sync from APIs</li>
+                            <li>Implemented Angular CDK features such as drag-and-drop in appointment scheduling</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="job-title">Frontend Developer</div>
+                        <div class="company">Soft Tech Master</div>
+                        <div class="date">Jan 2022 – Oct 2022</div>
+                        <ul class="responsibilities">
+                            <li>Delivered responsive interfaces with ReactJS and Next.js</li>
+                            <li>Ensured high usability and accessibility across devices</li>
+                            <li>Followed Agile development practices and Git workflows</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-graduation-cap"></i>Education</h3>
+                    <div class="education-item">
+                        <div class="job-title">BS in Computer Science</div>
+                        <div class="company">Abbottabad University of Science and Technology</div>
+                        <div class="date">2015 – 2019</div>
+                        <ul class="responsibilities">
+                            <li>Graduated with 2nd Division</li>
+                            <li>Focused on software engineering, algorithms, and frontend development</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-project-diagram"></i>Projects</h3>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-title">
+                                <i class="fas fa-check-circle"></i>
+                                <h4>PracticeFit</h4>
+                            </div>
+                            <div class="project-details">
+                                Full-featured clinic management system
+                                <ul>
+                                    <li>Built dashboards and scheduling features with Angular + PrimeNG</li>
+                                    <li>Used CDK drag-drop for appointments</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-title">
+                                <i class="fas fa-check-circle"></i>
+                                <h4>Patient Hub</h4>
+                            </div>
+                            <div class="project-details">
+                                Patient demographic management
+                                <ul>
+                                    <li>Developed reusable components & real-time API integration</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-title">
+                                <i class="fas fa-check-circle"></i>
+                                <h4>Auto Submission</h4>
+                            </div>
+                            <div class="project-details">
+                                Automated form submission system
+                                <ul>
+                                    <li>Reduced manual work by 40% using Angular automation</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-title">
+                                <i class="fas fa-check-circle"></i>
+                                <h4>Eligibility Module</h4>
+                            </div>
+                            <div class="project-details">
+                                Built workflows for verifying patient eligibility using REST APIs
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-title">
+                                <i class="fas fa-check-circle"></i>
+                                <h4>Submission & Claim Forms</h4>
+                            </div>
+                            <div class="project-details">
+                                Built secure, validated UB04 & HCFA form modules using Angular
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h3 class="section-title"><i class="fas fa-heart"></i>Interests</h3>
+                    <div class="interests">
+                        <span class="interest-item">Reading about tech trends & AI</span>
+                        <span class="interest-item">Traveling & cultural exploration</span>
+                        <span class="interest-item">Competitive video gaming</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            &copy; 2023 Ikram Ul Haq Khan | Designed with HTML & CSS
+        </div>
+    </div>
+    
+    <button class="download-btn" id="downloadBtn">
+        <i class="fas fa-download"></i> Download PDF Resume
+    </button>
+    
+    <script>
+        // Create icons using inline SVG to ensure they appear in PDF
+        document.querySelectorAll('.fa-map-marker-alt').forEach(el => {
+            el.outerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 5px;">
+                <path d="M12 0C7.802 0 4 3.403 4 7.602 4 11.8 7.469 16.812 12 24c4.531-7.188 8-12.2 8-16.398C20 3.403 16.199 0 12 0zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+            </svg>`;
+        });
+        
+        document.querySelectorAll('.fa-envelope').forEach(el => {
+            el.outerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 5px;">
+                <path d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/>
+            </svg>`;
+        });
+        
+        document.querySelectorAll('.fa-phone').forEach(el => {
+            el.outerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 5px;">
+                <path d="M20 22.621l-3.521-6.795c-.008.004-1.974.97-2.064 1.011-2.24 1.086-6.799-7.82-4.609-8.994l2.083-1.026-3.493-6.817-2.106 1.039c-7.202 3.755 4.233 25.982 11.6 22.615.121-.055 2.102-1.029 2.11-1.033z"/>
+            </svg>`;
+        });
+        
+        document.querySelectorAll('.fa-linkedin').forEach(el => {
+            el.outerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 5px;">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>`;
+        });
+        
+        document.querySelectorAll('.fa-github').forEach(el => {
+            el.outerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 5px;">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>`;
+        });
+        
+        // Create all other icons
+        const icons = {
+            'fa-user': `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm7.753 18.305c-.261-.586-.789-.991-1.871-1.241-2.293-.529-4.428-.993-3.393-2.945 3.145-5.942.833-9.119-2.489-9.119-3.388 0-5.644 3.299-2.489 9.119 1.066 1.964-1.148 2.427-3.393 2.945-1.084.25-1.608.658-1.867 1.246-1.405-1.723-2.251-3.919-2.251-6.31 0-5.514 4.486-10 10-10s10 4.486 10 10c0 2.389-.845 4.583-2.247 6.305z"/></svg>`,
+            'fa-code': `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 10.935v2.131l-8 3.947v-2.23l5.64-2.783-5.64-2.79v-2.223l8 3.948zm-16 3.848l-5.64-2.783 5.64-2.79v-2.223l-8 3.948v2.131l8 3.947v-2.23zm7.047-10.783h-2.078l-4.011 16h2.073l4.016-16z"/></svg>`,
+            'fa-language': `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M0 0h24v24h-24z" fill="none"/><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53h-5.41v-2h7.06v1.97h-2.2c-.51 2.97-1.89 5.67-3.85 7.92l4.11 4.1-1.42 1.41-6.01-6 6.01 6-1.42-1.41 4.1-4.11h-.01zm-10.87-8.07h4v2h-4v-2z"/></svg>`,
+            'fa-brain': `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-1.2 0-2.4.6-3 1.7-1.3 1-2 .7-2 1.6 0 1.5 4 3 5 3 .7 0 1.5.6 1.5 1.5 0 .6-.4 1.1-.9 1.4 1 .5 1.9 1.4 1.9 2.6 0 1.4-1.3 2.5-2.7 2.5-1.1 0-2.1-.7-2.4-1.7-.3.1-.6.2-.9.2-1.1 0-2-.9-2-2s.9-2 2-2c.3 0 .6.1.9.2.3-1 1.3-1.7 2.4-1.7.8 0 1.5.4 1.9 1 .2-1.4.6-2.7 1.1-3.7-.5-.2-1-.3-1.5-.3zm0-3c1.9 0 3.7.8 5 2.1 1.3 1.3 2 3.1 2 5 0 .8-.1 1.6-.4 2.3.5.2 1 .5 1.4.9 1.3 1.3 2 3.1 2 5 0 3.9-3.1 7-7 7s-7-3.1-7-7c0-1.9.8-3.7 2-5 .4-.4.9-.7 1.4-.9-.3-.7-.4-1.5-.4-2.3 0-1.9.7-3.7 2-5 1.3-1.3 3.1-2.1 5-2.1m0 3c-.8 0-1.6.3-2.1.9-.6.5-.9 1.3-.9 2.1 0 .8.3 1.6.9 2.1.5.6 1.3.9 2.1.9s1.6-.3 2.1-.9c.6-.5.9-1.3.9-2.1 0-.8-.3-1.6-.9-2.1-.5-.6-1.3-.9-2.1-.9z"/></svg>`,
+            'fa-briefcase': `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6v-2c0-.552.448-1 1-1h2c.552 0 1 .448 1 1v2h4c.552 0 1 .448 1 1v14c0 .552-.448 1-1 1h-14c-.552 0-1-.448-1-1v-14c0-.552.448-1 1-1h4zm-1 0h-3v13h12v-13h-3v1c0 .552-.448 1-1 1h-4c-.552 0-1-.448-1-1v-1zm3 0v1h2v-1h-2z"/></svg>`,
+            'fa-graduation-cap': `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.822 7.431c.018.168.018.335.018.504 0 5.085-3.868 10.95-10.94 10.95-2.173 0-4.198-.637-5.9-1.73.301.036.608.054.92.054 1.8 0 3.46-.612 4.78-1.64-1.683-.032-3.102-1.14-3.593-2.663.234.036.475.054.717.054.342 0 .681-.045.999-.129-1.76-.353-3.08-1.908-3.08-3.772v-.05c.518.288 1.109.46 1.738.479-1.032-.69-1.71-1.87-1.71-3.21 0-.71.192-1.37.526-1.94 1.912 2.35 4.77 3.89 7.99 4.06-.068-.287-.102-.585-.102-.889 0-2.15 1.74-3.9 3.9-3.9 1.12 0 2.14.47 2.85 1.23.89-.18 1.73-.5 2.48-.95-.29.91-.91 1.67-1.72 2.15.79-.09 1.54-.3 2.24-.62-.52.78-1.18 1.46-1.94 2.01z"/></svg>`,
+            'fa-project-diagram': `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22 7v-6h-6v2h4v4h2zm-14 6v-2h-4v-4h-2v6h6zm10 4h-4v2h6v-6h-2v4zm-18-4h-2v6h6v-2h-4v-4z"/></svg>`,
+            'fa-heart': `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/></svg>`,
+            'fa-check-circle': `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 17.292l-4.5-4.364 1.857-1.858 2.643 2.506 5.643-5.784 1.857 1.857-7.5 7.643z"/></svg>`,
+            'fa-download': `<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4v-6h-6v6h-4l7 8 7-8zm-14 9v2h14v-2h-14z"/></svg>`
+        };
+        
+        Object.entries(icons).forEach(([cls, svg]) => {
+            document.querySelectorAll(`.${cls}`).forEach(el => {
+                el.outerHTML = svg;
+            });
+        });
+        
+        // PDF Download functionality
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+            const element = document.getElementById('resume');
+            const button = document.getElementById('downloadBtn');
+            
+            // Original button text
+            const originalText = button.innerHTML;
+            
+            // Change button text to indicate processing
+            button.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="animation: spin 1s linear infinite;"><path d="M12 22c5.421 0 10-4.579 10-10h-2c0 4.337-3.663 8-8 8s-8-3.663-8-8c0-4.336 3.663-8 8-8v-2c-5.421 0-10 4.579-10 10s4.579 10 10 10z"/></svg> Generating PDF...';
+            button.disabled = true;
+            
+            // Create PDF
+            const options = {
+                margin: 10,
+                filename: 'Ikram_Ul_Haq_Khan_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { 
+                    scale: 2,
+                    useCORS: true,
+                    background: '#FFFFFF',
+                    logging: false
+                },
+                jsPDF: { 
+                    unit: 'mm', 
+                    format: 'a4', 
+                    orientation: 'portrait',
+                    compress: true
+                }
+            };
+            
+            // Add spin animation for loading
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Generate PDF
+            html2pdf()
+                .set(options)
+                .from(element)
+                .save()
+                .then(() => {
+                    // Revert button text after PDF is generated
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                    
+                    // Remove spin animation
+                    style.remove();
+                    
+                    // Show success message
+                    const successMsg = document.createElement('div');
+                    successMsg.className = 'success-message';
+                    successMsg.innerHTML = `
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                            <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.25 17.292l-4.5-4.364 1.857-1.858 2.643 2.506 5.643-5.784 1.857 1.857-7.5 7.643z"/>
+                        </svg>
+                        Resume downloaded successfully!
+                    `;
+                    
+                    document.body.appendChild(successMsg);
+                    
+                    // Remove the message after animation completes
+                    setTimeout(() => {
+                        successMsg.remove();
+                    }, 3000);
+                });
+        });
+    </script>
+</body>
+</html>
