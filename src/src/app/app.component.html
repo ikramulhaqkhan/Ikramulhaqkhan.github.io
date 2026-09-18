@@ -1,0 +1,218 @@
+<div class="site-shell">
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="header" [class.scrolled]="scrolled">
+    <div class="nav-shell">
+      <a class="brand" href="#top" (click)="closeMenu()" aria-label="Ikram Ul Haq Khan home">
+        <span class="brand-mark">IK</span>
+        <span class="brand-text"><b>Ikram Ul Haq Khan</b><small>Frontend Engineer</small></span>
+      </a>
+
+      <nav class="nav-links" [class.open]="menuOpen" aria-label="Primary navigation">
+        <a href="#work" (click)="closeMenu()"><span>01</span> Work</a>
+        <a href="#craft" (click)="closeMenu()"><span>02</span> Craft</a>
+        <a href="#journey" (click)="closeMenu()"><span>03</span> Journey</a>
+        <a href="#contact" (click)="closeMenu()"><span>04</span> Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <span class="availability"><i></i> Available</span>
+        <a class="nav-cta" href="#contact">Let’s talk <span>↗</span></a>
+        <button class="menu-toggle" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen" aria-label="Toggle menu">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-a" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb-b" aria-hidden="true"></div>
+
+      <div class="hero-shell">
+        <div class="hero-copy reveal in">
+          <div class="hero-kicker"><span class="status-dot"></span><span>Frontend engineer · product UI</span><i></i><span>Pakistan / Remote</span></div>
+          <h1>
+            <span>ENGINEERING</span>
+            <span class="hero-outline">INTERFACES</span>
+            <span>PEOPLE <em>FEEL.</em></span>
+          </h1>
+          <p class="hero-lead">I turn complex products into sharp, fast and responsive experiences — across <strong>Angular, React and Next.js</strong>, with deep enterprise and healthcare product experience.</p>
+          <div class="hero-actions">
+            <a href="#work" class="btn btn-solid">View selected work <span>↘</span></a>
+            <a href="#craft" class="btn btn-line">How I build <span>→</span></a>
+          </div>
+          <div class="hero-proof">
+            <div><small>01 / CORE</small><b>Angular · React · Next.js</b></div>
+            <div><small>02 / SPECIALTY</small><b>Responsive product systems</b></div>
+            <div><small>03 / DOMAIN</small><b>Healthcare · SaaS · Enterprise</b></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal in" aria-hidden="true">
+          <div class="visual-label label-top"><span>PRODUCT UI</span><b>01</b></div>
+          <div class="visual-label label-side"><span>RESPONSIVE</span><b>100%</b></div>
+          <div class="hero-browser">
+            <div class="window-bar">
+              <span class="window-dots"><i></i><i></i><i></i></span>
+              <small>practicefit / operations</small>
+              <span class="live-pill"><i></i> LIVE UI</span>
+            </div>
+            <div class="window-body">
+              <aside class="dash-nav"><span class="dash-logo"></span><i class="active"></i><i></i><i></i><i></i><i></i><i></i></aside>
+              <div class="dash-main">
+                <div class="dash-header"><div><small>Revenue Cycle</small><strong>Operations overview</strong></div><button>Sep 2026⌄</button></div>
+                <div class="dash-cards"><article><small>Claims</small><b>12,480</b><span>+8.4%</span></article><article><small>Collections</small><b>$842k</b><span>+12.6%</span></article><article><small>Denials</small><b>3.8%</b><span>−1.2%</span></article></div>
+                <div class="dash-chart">
+                  <div class="chart-title"><span><small>COLLECTION TREND</small><b>$842,410</b></span><em>+12.6%</em></div>
+                  <svg viewBox="0 0 500 180" preserveAspectRatio="none"><defs><linearGradient id="heroArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#77f7cf" stop-opacity=".34"/><stop offset="100%" stop-color="#77f7cf" stop-opacity="0"/></linearGradient></defs><path class="area" d="M0,145 C35,137 55,115 92,121 C130,127 147,84 188,94 C234,106 250,63 291,71 C337,81 353,45 393,55 C438,66 463,28 500,20 L500,180 L0,180 Z"/><path class="line" d="M0,145 C35,137 55,115 92,121 C130,127 147,84 188,94 C234,106 250,63 291,71 C337,81 353,45 393,55 C438,66 463,28 500,20"/></svg>
+                </div>
+                <div class="dash-bottom"><div><small>Priority work</small><b>231 items</b></div><span><i></i><i></i><i></i><i></i></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="hero-phone"><div class="phone-notch"></div><small>Today</small><strong>$24.8k</strong><span class="phone-chart"><i></i><i></i><i></i><i></i><i></i><i></i></span><div><b>72%</b><small>resolved</small></div></div>
+          <div class="hero-chip chip-one"><small>RESPONSIVE</small><b>320 → 1920+</b></div>
+          <div class="hero-chip chip-two"><small>PRODUCT THINKING</small><b>Real workflows</b></div>
+        </div>
+      </div>
+
+      <div class="hero-footer">
+        <span>Scroll to explore</span>
+        <div class="hero-marquee"><div><b>ANGULAR</b><i>✦</i><b>REACT</b><i>✦</i><b>NEXT.JS</b><i>✦</i><b>TYPESCRIPT</b><i>✦</i><b>RESPONSIVE SYSTEMS</b><i>✦</i><b>PRODUCT UI</b><i>✦</i></div></div>
+      </div>
+    </section>
+
+    <section class="intro-manifesto" id="work">
+      <div class="section-shell reveal">
+        <div class="eyebrow-row"><span>SELECTED WORK</span><i></i><small>2026 / PRODUCT ENGINEERING</small></div>
+        <div class="manifesto-grid">
+          <h2>Not mockups.<br><em>Real products,</em><br>real complexity.</h2>
+          <div class="manifesto-copy"><p>I work where frontend gets difficult: long workflows, dense data, business rules, responsive states and interfaces that have to survive production.</p><span>Below are the systems that best represent how I think and build.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects-section">
+      <div class="section-shell project-stack">
+        <article class="project reveal" *ngFor="let project of flagshipProjects; let i = index" [class.project-reverse]="i % 2 === 1" [attr.data-palette]="project.palette">
+          <div class="project-copy">
+            <div class="project-meta"><span>{{ project.number }}</span><i></i><small>{{ project.eyebrow }}</small></div>
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.summary }}</p>
+            <div class="project-facts"><span *ngFor="let item of project.features"><i>↳</i>{{ item }}</span></div>
+            <div class="project-stack-tags"><span *ngFor="let item of project.stack">{{ item }}</span></div>
+            <div class="project-links">
+              <button type="button" (click)="openProject(project)">Case study <span>↗</span></button>
+              <a *ngIf="project.live" [href]="project.live" target="_blank" rel="noreferrer">Live product <span>↗</span></a>
+              <small *ngIf="project.confidential">NDA / product work</small>
+            </div>
+          </div>
+
+          <div class="project-visual">
+            <div class="project-watermark">{{ project.number }}</div>
+            <div class="project-badge"><b>{{ project.stat }}</b><small>{{ project.statLabel }}</small></div>
+            <div class="project-window">
+              <div class="project-window-top"><span><i></i><i></i><i></i></span><small>{{ project.id }}.product</small><b>↗</b></div>
+              <div class="project-ui">
+                <aside><strong></strong><i class="on"></i><i></i><i></i><i></i><i></i></aside>
+                <main>
+                  <div class="ui-title"><span><small>{{ project.eyebrow }}</small><b>{{ project.title }}</b></span><button>•••</button></div>
+                  <div class="ui-metrics"><article><small>Performance</small><b>94.8%</b><em>+4.2%</em></article><article><small>Active</small><b>1,284</b><em>+8.1%</em></article><article><small>Resolved</small><b>842</b><em>+12%</em></article></div>
+                  <div class="ui-lower"><div class="ui-bars"><span style="--h:54%"></span><span style="--h:74%"></span><span style="--h:46%"></span><span style="--h:88%"></span><span style="--h:66%"></span><span style="--h:95%"></span><span style="--h:76%"></span></div><div class="ui-list"><i></i><i></i><i></i><i></i><i></i></div></div>
+                </main>
+              </div>
+            </div>
+            <div class="project-mobile"><span></span><small>{{ project.eyebrow }}</small><b>{{ project.stat }}</b><i></i><i></i><i></i></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-shell side-projects reveal">
+        <div class="side-projects-head"><div><span>04—06</span><h3>More systems I’ve shaped.</h3></div><p>Different domains, same obsession with hierarchy, usability and responsive behavior.</p></div>
+        <div class="side-projects-grid">
+          <article *ngFor="let project of moreProjects" [attr.data-palette]="project.palette" (click)="openProject(project)" tabindex="0">
+            <div class="side-top"><span>{{ project.number }}</span><small>{{ project.eyebrow }}</small><b>↗</b></div>
+            <div class="side-art"><div class="side-ui"><aside></aside><main><span></span><span></span><div><i></i><i></i><i></i><i></i><i></i></div></main></div></div>
+            <h4>{{ project.title }}</h4><p>{{ project.summary }}</p>
+            <div class="side-tags"><span *ngFor="let item of project.stack.slice(0, 3)">{{ item }}</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="craft-section" id="craft">
+      <div class="craft-grid-bg" aria-hidden="true"></div>
+      <div class="section-shell">
+        <div class="craft-head reveal"><div class="eyebrow-row"><span>RESPONSIVE CRAFT</span><i></i><small>MY STRONGEST AREA</small></div><h2>I don’t make layouts <span>fit.</span><br>I make them <em>belong.</em></h2><p>Desktop, tablet and mobile are different compositions of the same product — not one screen squeezed until it breaks.</p></div>
+
+        <div class="craft-bento">
+          <article class="craft-card craft-devices reveal">
+            <div class="card-index">01</div><div class="card-copy"><small>BREAKPOINT ARCHITECTURE</small><h3>One system.<br>Three intentional states.</h3><p>Density on desktop. Balance on tablet. Focus on mobile.</p></div>
+            <div class="device-stage"><div class="device desktop"><span></span><aside></aside><main><i></i><i></i><div></div></main></div><div class="device tablet"><span></span><i></i><i></i><div></div></div><div class="device phone"><span></span><i></i><b></b><i></i><i></i></div></div>
+          </article>
+
+          <article class="craft-card craft-code reveal"><div class="card-index">02</div><small>CSS CONTROL</small><h3>Grid + Flex + media queries.</h3><div class="code-block"><code><span>.product-grid</span> &#123;<br>&nbsp;&nbsp;display: grid;<br>&nbsp;&nbsp;grid-template-columns:<br>&nbsp;&nbsp;<b>repeat(12, 1fr);</b><br>&#125;<br><br><em>@media</em> (max-width: 768px) &#123;<br>&nbsp;&nbsp;grid-template-columns: <b>1fr;</b><br>&#125;</code></div></article>
+
+          <article class="craft-card craft-quote reveal"><div class="card-index">03</div><small>RESPONSIVE MINDSET</small><blockquote>Mobile is not desktop with fewer columns.</blockquote><div class="breakpoints"><span>320</span><i></i><span>768</span><i></i><span>1024</span><i></i><span>1440+</span></div></article>
+
+          <article class="craft-card craft-score reveal"><div class="card-index">04</div><small>WHAT I OPTIMIZE</small><div class="score-ring"><b>100</b><span>usable UI</span></div><ul><li>Hierarchy</li><li>Touch targets</li><li>Table behavior</li><li>Form flow</li><li>Content priority</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="principles-section">
+      <div class="section-shell principles-grid reveal">
+        <div class="principles-copy"><div class="eyebrow-row"><span>FRONTEND CRAFT</span><i></i></div><h2>Design eye.<br>Engineering discipline.</h2><p>I care about the last 4px — and the architecture underneath it.</p></div>
+        <div class="principles-list"><article *ngFor="let principle of principles"><span>{{ principle.no }}</span><div><h3>{{ principle.title }}</h3><p>{{ principle.text }}</p></div><b>↗</b></article></div>
+      </div>
+      <div class="skills-marquee"><div><span *ngFor="let item of tech">{{ item }}</span></div></div>
+    </section>
+
+    <section class="journey-section" id="journey">
+      <div class="section-shell journey-grid">
+        <div class="journey-copy reveal"><div class="eyebrow-row"><span>CAREER JOURNEY</span><i></i></div><h2>React foundation.<br><em>Angular ownership.</em></h2><p>The stack evolved. The standard did not.</p></div>
+        <div class="journey-list reveal">
+          <article><span>01</span><i></i><div><small>FOUNDATION</small><h3>React & Next.js</h3><p>Responsive forms, interface composition, CSS fundamentals and a breakpoint-first mindset.</p></div></article>
+          <article><span>02</span><i></i><div><small>GROWTH</small><h3>Angular product systems</h3><p>Reusable components, complex state, TypeScript, forms and production workflow ownership.</p></div></article>
+          <article><span>03</span><i></i><div><small>DOMAIN DEPTH</small><h3>Healthcare RCM & dashboards</h3><p>Claims, denials, payers, contracts, patients, collaboration, analytics and dense operational UI.</p></div></article>
+          <article><span>04</span><i></i><div><small>NOW</small><h3>Frontend ownership</h3><p>Turning complicated requirements into products that feel clear, responsive and intentional.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="statement-section"><div class="section-shell reveal"><span class="quote-mark">“</span><p>The strongest frontend work is where <em>design quality, responsive behavior</em> and business logic feel like one system.</p><small>— IKRAM UL HAQ KHAN / FRONTEND ENGINEER</small></div></section>
+
+    <section class="contact-section" id="contact">
+      <div class="section-shell contact-card reveal">
+        <div class="contact-grid" aria-hidden="true"></div>
+        <div class="contact-orb" aria-hidden="true"></div>
+        <div class="contact-kicker"><span><i></i> AVAILABLE FOR THE RIGHT ROLE</span><small>REMOTE / ONSITE</small></div>
+        <h2>Have a product that deserves a <em>better frontend?</em></h2>
+        <p>I’m open to frontend roles where product quality matters — especially Angular, React, Next.js, enterprise SaaS, healthcare and responsive product UI.</p>
+        <div class="contact-actions"><a class="btn btn-solid" href="mailto:YOUR_EMAIL_HERE">Start a conversation <span>↗</span></a><a class="btn btn-line" href="javascript:void(0)">LinkedIn <span>↗</span></a><a class="btn btn-line" href="javascript:void(0)">GitHub <span>↗</span></a></div>
+        <div class="contact-footer"><span>Frontend Engineer</span><i></i><span>Angular · React · Next.js</span><i></i><span>Open to remote opportunities</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section-shell"><span>© 2026 IKRAM UL HAQ KHAN</span><span>Designed & engineered for every screen.</span><a href="#top">BACK TO TOP ↑</a></footer>
+
+  <div class="modal-layer" *ngIf="activeProject" (click)="closeProject()">
+    <article class="case-modal" (click)="$event.stopPropagation()">
+      <button class="close" type="button" (click)="closeProject()">×</button>
+      <div class="modal-number">{{ activeProject.number }}</div>
+      <p class="modal-eyebrow">{{ activeProject.eyebrow }}</p>
+      <h2>{{ activeProject.title }}</h2>
+      <p class="modal-summary">{{ activeProject.summary }}</p>
+      <div class="modal-stat"><strong>{{ activeProject.stat }}</strong><span>{{ activeProject.statLabel }}</span></div>
+      <div class="case-points"><section><span>01</span><div><h3>The challenge</h3><p>{{ activeProject.challenge }}</p></div></section><section><span>02</span><div><h3>How I approach it</h3><p>{{ activeProject.solution }}</p></div></section><section><span>03</span><div><h3>The outcome</h3><p>{{ activeProject.impact }}</p></div></section></div>
+      <div class="modal-stack"><span *ngFor="let item of activeProject.stack">{{ item }}</span></div>
+      <a *ngIf="activeProject.live" class="btn btn-solid modal-btn" [href]="activeProject.live" target="_blank" rel="noreferrer">Visit live product <span>↗</span></a>
+      <p *ngIf="activeProject.confidential" class="nda-note">Product visuals are stylized representations. Confidential client data is not displayed.</p>
+    </article>
+  </div>
+</div>
